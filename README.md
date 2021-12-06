@@ -1,6 +1,6 @@
 ## Arrancar proyecto con ParcelJS
 
-Sobre la raiz del proyecto, con ParcelJS instalado. Yo tengo instalada la versión 1.12.5
+Sobre la raiz del proyecto, con ParcelJS instalado (Yo tengo instalada la versión 1.12.5)
 
 ```bash
 parcel index.html
@@ -8,7 +8,7 @@ parcel index.html
 
 ## Grid con display Grid
 
-Se colocan tres imágenes una encima de otra mediante display grid
+Se colocan tres imágenes una encima de otra mediante <code>display grid</code>
 
 ```css
 .banner {
@@ -72,6 +72,8 @@ Se modifica su visibilidad actuando sobre <code>clip-path</code> de manera que l
   );
 }
 ```
+
+Realmente lo que más tiempo lleva es definir y tener claro como se realiza el sistema de coordenadas. Lo dibuje en papel, pero pongo aquí una imagen. Defino 4 puntos exteriores (--pe) que están fijos en los extremos, y puntos interiores y comunes entre imágenes (--pi) que divido en ejes X e Y
 
 ## Modificación de puntos clip-path con librería javascript: dat.gui
 
