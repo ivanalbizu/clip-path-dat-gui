@@ -1,6 +1,6 @@
 ## Grid con display Grid
 
-Se coloca tres imágenes una encima de otra mediante display grid
+Se colocan tres imágenes una encima de otra mediante display grid
 
 ```css
 .banner {
@@ -67,3 +67,45 @@ Se modifica su visibilidad actuando sobre <code>clip-path</code> de manera que l
 
 ## Modificación de puntos clip-path con librería javascript: dat.gui
 
+Se crea una instancia de la librería <code>dat.GUI</code>
+
+```javascript
+const gui = new dat.GUI()
+```
+
+Se crea un objeto para guardar los valores iniciales del <code>banner</code> que más adelante serán actualizados con <code>dat.GUI</code>
+
+```javascript
+const settings = {
+  'width': 1200,
+  '--g': 20,
+  '--pi-1-x': 36,
+  '--pi-2-x': 80,
+  '--pi-3-x': 52,
+  '--pi-4-x': 22
+}
+```
+
+La función <code>const setValue = banner => {}</code> será usada para cambiar los estilos CSS cuando se produzcan cambios por el usuario mediante el panel <code>dat.GUI</code>
+
+```javascript
+const setValue = banner => {
+  banner.style.width = settings.width+"px"
+  banner.style.setProperty('--g', settings['--g']+"px")
+  banner.style.setProperty('--pi-1-x', settings['--pi-1-x']+"%")
+  banner.style.setProperty('--pi-2-x', settings['--pi-2-x']+"%")
+  banner.style.setProperty('--pi-3-x', settings['--pi-3-x']+"%")
+  banner.style.setProperty('--pi-4-x', settings['--pi-4-x']+"%")
+}
+```
+
+Para usar <code>dat.GUI</code> usamos el método <code>add</code> al que le pasamos 4 parámetros
+
+<ol>
+  <li>Objeto con las <code>settings</code></li>
+  <li>Propiedad CSS que queremos escuchar cambios</li>
+  <li>Valor mínimo permitido</li>
+  <li>Valor máximo permitido</li>
+</ol>
+
+Si se producen cambios en los atributos CSS, entonces llamamos a la función <code>setValue.bind(null, banner)</code> en la que pasamos el banner como parámetro
