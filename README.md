@@ -1,3 +1,11 @@
+## Arrancar proyecto con ParcelJS
+
+Sobre la raiz del proyecto, con ParcelJS instalado. Yo tengo instalada la versión 1.12.5
+
+```bash
+parcel index.html
+```
+
 ## Grid con display Grid
 
 Se colocan tres imágenes una encima de otra mediante display grid
@@ -109,3 +117,16 @@ Para usar <code>dat.GUI</code> usamos el método <code>add</code> al que le pasa
 </ol>
 
 Si se producen cambios en los atributos CSS, entonces llamamos a la función <code>setValue.bind(null, banner)</code> en la que pasamos el banner como parámetro
+
+```javascript
+window.addEventListener('DOMContentLoaded', () => {
+  const banner = document.querySelector('.banner')
+
+  gui.add(settings, 'width', 600, 1200).onChange(setValue.bind(null, banner))
+  gui.add(settings, '--g', 0, 30).onChange(setValue.bind(null, banner))
+  gui.add(settings, '--pi-1-x', 0, 50).onChange(setValue.bind(null, banner))
+  gui.add(settings, '--pi-2-x', 55, 99).onChange(setValue.bind(null, banner))
+  gui.add(settings, '--pi-3-x', 56, 99).onChange(setValue.bind(null, banner))
+  gui.add(settings, '--pi-4-x', 0, 48).onChange(setValue.bind(null, banner))
+})
+```
